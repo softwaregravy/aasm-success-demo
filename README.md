@@ -4,7 +4,13 @@ This project demonstrates reading state out of the db during a state transition 
 
 See issue [683](https://github.com/@sm/@sm/issues/683) for discussion
 
-Here is the output of the program
+Where to look for interesting bits:
+* There are 2 Job classes ([Job](https://github.com/softwaregravy/aasm-success-demo/blob/master/app/models/job.rb) and [Job2](https://github.com/softwaregravy/aasm-success-demo/blob/master/app/models/Job2.rb)
+* There are 2 connection pools to the same DB created in [database.yml](https://github.com/softwaregravy/aasm-success-demo/blob/master/config/database.yml#L24), they are the normal `development` used by default for Rails running locally, and `development2`
+* The `Job2` class uses the `develoment2` connection pool, but reads the same table as `Job`. Thus, Job2 can read fresh data.
+
+
+Here is the output of the program just running on the commandline
 
 ```bash
 Running via Spring preloader in process 64907
