@@ -9,6 +9,12 @@ class Job < ApplicationRecord
       transitions from: :ready, to: :finished,
         success: -> { tell_the_world }
     end
+
+    event :job_gone_wrong do 
+      transitions from: :ready, to: :finished,
+        success: -> { ruin_everything }
+    end
+
   end
 
   def tell_the_world
@@ -20,4 +26,9 @@ class Job < ApplicationRecord
     puts "   This other connection is in class Job2 which uses the connection pool development2 which connects to the same db"
     puts "... the DB currently holds state: #{Job2.find(id).aasm_state}"
   end
+
+  def ruin_everything
+    Job2.find(id).ruin_everything_helper
+  end
 end
+
