@@ -2,7 +2,7 @@
 
 This project demonstrates reading state out of the db during a state transition for aasm
 
-See issue [683](https://github.com/@sm/@sm/issues/683) for discussion
+See issue [683](https://github.com/aasm/aasm/issues/683) for discussion
 
 Where to look for interesting bits:
 * There are 2 Job classes ([Job](https://github.com/softwaregravy/aasm-success-demo/blob/master/app/models/job.rb) and [Job2](https://github.com/softwaregravy/aasm-success-demo/blob/master/app/models/Job2.rb)
